@@ -1,0 +1,86 @@
+[debug] [2022-05-07T12:14:31.918Z] ----------------------------------------------------------------------
+[debug] [2022-05-07T12:14:31.919Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2022-05-07T12:14:31.919Z] CLI Version:   10.8.0
+[debug] [2022-05-07T12:14:31.920Z] Platform:      linux
+[debug] [2022-05-07T12:14:31.920Z] Node Version:  v16.14.0
+[debug] [2022-05-07T12:14:31.920Z] Time:          Sat May 07 2022 17:44:31 GMT+0530 (India Standard Time)
+[debug] [2022-05-07T12:14:31.920Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-07T12:14:31.957Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-07T12:14:31.957Z] > authorizing via signed-in user (snvd1999@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/naveed/Downloads/Linkedin/Linkedin
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-05-07T12:14:34.722Z] Using project from CLI flag: linkedin-clone-3e412
+[debug] [2022-05-07T12:14:34.725Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-3e412 [none]
+[debug] [2022-05-07T12:14:35.259Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-3e412 403
+[debug] [2022-05-07T12:14:35.259Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-3e412 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-05-07T12:14:35.260Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-05-07T12:14:35.821Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:47:12)
+    at RetryOperation._fn (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:286:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project linkedin-clone-3e412. Please make sure the project exists and your account has permission to access it.
+[debug] [2022-05-07T12:14:45.620Z] ----------------------------------------------------------------------
+[debug] [2022-05-07T12:14:45.621Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2022-05-07T12:14:45.621Z] CLI Version:   10.8.0
+[debug] [2022-05-07T12:14:45.621Z] Platform:      linux
+[debug] [2022-05-07T12:14:45.621Z] Node Version:  v16.14.0
+[debug] [2022-05-07T12:14:45.622Z] Time:          Sat May 07 2022 17:44:45 GMT+0530 (India Standard Time)
+[debug] [2022-05-07T12:14:45.622Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-07T12:14:45.663Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-07T12:14:45.664Z] > authorizing via signed-in user (snvd1999@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /home/naveed/Downloads/Linkedin/Linkedin
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-05-07T12:15:05.404Z] Using project from CLI flag: linkedin-clone-3e412
+[debug] [2022-05-07T12:15:05.406Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-3e412 [none]
+[debug] [2022-05-07T12:15:06.277Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-3e412 403
+[debug] [2022-05-07T12:15:06.277Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/linkedin-clone-3e412 {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2022-05-07T12:15:06.278Z] HTTP Error: 403, The caller does not have permission
+[debug] [2022-05-07T12:15:06.887Z] FirebaseError: HTTP Error: 403, The caller does not have permission
+    at module.exports (/usr/local/lib/node_modules/firebase-tools/lib/responseToError.js:47:12)
+    at RetryOperation._fn (/usr/local/lib/node_modules/firebase-tools/lib/apiv2.js:286:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[error] 
+[error] Error: Failed to get Firebase project linkedin-clone-3e412. Please make sure the project exists and your account has permission to access it.
