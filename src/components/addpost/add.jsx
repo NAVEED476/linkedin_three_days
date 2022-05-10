@@ -1,9 +1,9 @@
 import React from 'react'
 import { useState } from 'react';
-import "./add.css"
+// import "./add.css"
 
 import { useDispatch } from 'react-redux';
-import {postadded} from '../redux/action'
+import { postadded } from '../Redux/action';
 
 const Addpost = () => {
     const dispatch = useDispatch()

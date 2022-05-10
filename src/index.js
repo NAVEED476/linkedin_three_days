@@ -4,10 +4,10 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { store } from "./components/Redux/store";
+import {store1} from "../src/components/Redux/store"
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={store1}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
