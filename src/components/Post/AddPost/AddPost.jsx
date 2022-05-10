@@ -5,13 +5,12 @@ import YouTubeIcon from "@material-ui/icons/YouTube";
 import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
 import EventNoteIcon from "@material-ui/icons/EventNote";
 import PhotoSizeSelectActualIcon from "@material-ui/icons/PhotoSizeSelectActual";
-import firebase from "firebase/compat/app";
-import { db } from "../../../firebase";
+
 import Styles from "./Style";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../Redux/userSlice";
 import { useNavigate } from "react-router-dom";
-
+import {axios} from "axios"
 export function AddPost() {
   const nav = useNavigate();
   const direct = () => {
@@ -21,17 +20,29 @@ export function AddPost() {
 
   const classes = Styles();
   const [URL, setURL] = useState("");
-  const [enterpost, setEnterpost] = useState("");
+  // const [enterpost, setEnterpost] = useState("");
+  const [data, setdata] = useState("")
 
   const submitPost = (e) => {
-    e.preventDefault();
-    db.collection("enterpost").add({
-      name: user.displayName,
-      message: enterpost,
-      photoUrl: user.photoURL,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-    setEnterpost("");
+    e.preventDefault()
+
+    if (data === "") {
+      alert("input field can not be empty")
+    }
+
+    fetch(`http://localhost:3001/data`, {
+      method: "POST",
+      body: JSON.stringify({
+        data: data,
+      }),
+      headers: {
+        "content-Type": "application/json"
+      }
+
+    }
+    )
+    
+    
   };
 
   return (
@@ -41,8 +52,8 @@ export function AddPost() {
         <form className={classes.header__form} onSubmit={submitPost}>
           <input
             placeholder="Start a Add"
-            value={enterpost}
-            onChange={(e) => setEnterpost(e.target.value)}
+            
+            onChange={(e) => setdata(e.target.value)}
           />
           <input id="upload-image" type="file" accept="image/*" hidden />
           <input id="upload-video" type="file" accept="video/*" hidden />
@@ -67,6 +78,7 @@ export function AddPost() {
           <YouTubeIcon style={{ color: "green" }} />
           <h4>Video</h4>
         </label>
+        {/* <h1>{enterpost}</h1> */}
         <div className={classes.media__options}>
           <EventNoteIcon style={{ color: "orange", fontSize: 30 }} />
           <h4>Event</h4>

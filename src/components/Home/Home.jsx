@@ -1,5 +1,7 @@
+import Add from "@material-ui/icons/Add";
 import React from "react";
 import styled from "styled-components";
+import Addpost from "../addpost/add";
 import { LeftSideComponents } from "../LeftSide/LeftSideComponent";
 import PostComponent from "../Post/PostComponent";
 import { RightSide } from "../RightSide/RightSide";
@@ -9,6 +11,8 @@ function Home() {
       <Layout>
         <LeftSideComponents />
         <PostComponent />
+          {/* <Addpost/> */}
+          
         <RightSide />
       </Layout>
     </div>
