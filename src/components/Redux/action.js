@@ -9,7 +9,8 @@ const addpost = () =>({
 
 export const postadded = (post)=>{
     return function (dispatch){
-        axios.post(`http://localhost:3001/data`).then(res=>console.log(res)).catch((err)=>console.log(err))
+        axios.post(`http://localhost:3001/data`,post).then(res=>console.log(res)).catch((err)=>console.log(err))
         dispatch(addpost(post))
     }
+    
 }
