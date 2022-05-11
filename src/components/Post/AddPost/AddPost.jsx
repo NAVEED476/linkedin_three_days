@@ -10,7 +10,9 @@ import Styles from "./Style";
 import { useSelector } from "react-redux";
 import { selectUser } from "../../Redux/userSlice";
 import { useNavigate } from "react-router-dom";
-import {axios} from "axios"
+import { useDispatch } from "react-redux";
+import { axios } from "axios"
+import { postadded } from "../../Redux/action";
 export function AddPost() {
   const nav = useNavigate();
   const direct = () => {
@@ -21,39 +23,63 @@ export function AddPost() {
   const classes = Styles();
   const [URL, setURL] = useState("");
   // const [enterpost, setEnterpost] = useState("");
-  const [data, setdata] = useState("")
+  const [data, setdata] = useState({
+    name: ""
+  })
+
+  const { name } = data
+
+  const dispatch = useDispatch()
+
+  const handlechange = (e) => {
+    let { name, value } = e.target;
+    setdata({ ...data, [name]: value })
+  }
 
   const submitPost = (e) => {
+
     e.preventDefault()
 
-    if (data === "") {
+    if (name == "") {
       alert("input field can not be empty")
     }
+   
+      dispatch(postadded(data))
 
-    fetch(`http://localhost:3001/data`, {
-      method: "POST",
-      body: JSON.stringify({
-        data: data,
-      }),
-      headers: {
-        "content-Type": "application/json"
-      }
+      setdata({
+        name:""
+      })
+    
 
-    }
-    )
-    
-    
+    // fetch(`http://localhost:3001/data`, {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     data: data,
+    //   }),
+    //   headers: {
+    //     "content-Type": "application/json"
+    //   }
+
+    // }
+    // )
+
+
+
+
+
+
+
   };
 
   return (
     <Paper className={classes.upload}>
       <div className={classes.upload__header}>
         <Avatar onClick={direct} src={user.photoURL} />
-        <form className={classes.header__form} onSubmit={submitPost}>
+        <form className={classes.header__form} onSubmit={submitPost} name="data">
           <input
             placeholder="Start a Add"
-            
-            onChange={(e) => setdata(e.target.value)}
+
+            onChange={handlechange}
           />
           <input id="upload-image" type="file" accept="image/*" hidden />
           <input id="upload-video" type="file" accept="video/*" hidden />

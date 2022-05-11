@@ -9,7 +9,7 @@ import SendIcon from "@material-ui/icons/Send";
 import CommentOutlinedIcon from "@material-ui/icons/CommentOutlined";
 import Style from "./Style";
 import ReactTimeago from "react-timeago";
-import { db } from "../../../firebase";
+// import { db } from "../../../firebase";
 
 import axios from "axios";
 // import { useEffect } from "react";
@@ -25,24 +25,26 @@ function ShowPost() {
   const[data,setdata] = useState([])
 
   useEffect(() => {
-    // showdata()
+    showdata()
     setLikesCount(Math.floor(Math.random() * 1000) + 1);
     setCommentsCount(Math.floor(Math.random() * 10) + 1);
     setHeartIcontOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
     setSmileIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
     setThumsUpIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-    db.collection("manullypost").onSnapshot((snapshot) => {
-      setPosts(snapshot.docs.map((doc) => doc.data()));
-    });
+    // db.collection("manullypost").onSnapshot((snapshot) => {
+    //   setPosts(snapshot.docs.map((doc) => doc.data()));
+    // });
   }, []);
+
+  const showdata = async() =>{
+    let response = await axios.get(`http://localhost:3000/data`);
+    console.log(response)
+    setdata(response.data)
+  }
 
   const Reactions = ({ i }) => {
 
-    // const showdata = async() =>{
-    //   let response = await axios.get(`http://localhost:30001/data`);
-    //   console.log(response)
-    //   setdata(response.data)
-    // }
+   
     return (
 
 

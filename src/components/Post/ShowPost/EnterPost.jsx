@@ -12,7 +12,6 @@ import Style from "./Style";
 import ReactTimeago from "react-timeago";
 import { db } from "../../../firebase";
 import ReactPlayer from "react-player";
-import axios from "axios"
 
 export function EnterPost() {
   const classes = Style();
@@ -25,23 +24,17 @@ export function EnterPost() {
   const [smileIconOrder, setSmileIconOrder] = useState(1);
   const [thumsUpIconOrder, setThumsUpIconOrder] = useState(1);
 
-  const [data,setdata] = useState([])
-
   useEffect(() => {
-
-    showdata()
-
-
     setLikesCount(Math.floor(Math.random() * 1000) + 1);
     setCommentsCount(Math.floor(Math.random() * 10) + 1);
     setHeartIcontOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
     setSmileIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
     setThumsUpIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-    // db.collection("enterpost")
-    //   .orderBy("timestamp", "desc")
-    //   .onSnapshot((snapshot) => {
-    //     setenterPosts(snapshot.docs.map((doc) => doc.data()));
-    //   });
+    db.collection("enterpost")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) => {
+        setenterPosts(snapshot.docs.map((doc) => doc.data()));
+      });
   }, []);
 
   const Reactions = ({ i }) => {
@@ -73,19 +66,9 @@ export function EnterPost() {
     );
   };
 
-
-  const showdata = async() =>{
-    let response = await axios.get(`http://localhost:30001/data`);
-    console.log(response)
-    setdata(response.data)
-  }
-
-
-
-
   return (
     <div>
-      {data.map((user, i) => {
+      {enterposts.map((user, i) => {
         return (
           <Paper className={classes.post} key={i}>
             <div className={classes.post__header}>
