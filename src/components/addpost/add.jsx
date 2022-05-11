@@ -21,6 +21,7 @@ const Addpost = () => {
         }
         else{
             dispatch(postadded(data))
+            
             setdata({name:""})
         }
 
