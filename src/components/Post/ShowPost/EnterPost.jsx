@@ -36,6 +36,13 @@ export function EnterPost() {
         setenterPosts(snapshot.docs.map((doc) => doc.data()));
       });
   }, []);
+  const showdata= () =>{
+    return (
+      <div>
+        hii
+      </div>
+    )
+  }
 
   const Reactions = ({ i }) => {
     return (
