@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Paper, Avatar } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
@@ -13,6 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { axios } from "axios"
 import { postadded } from "../../Redux/action";
+import ShowPost from "../ShowPost/ShowPost"
 export function AddPost() {
   const nav = useNavigate();
   const direct = () => {
@@ -23,38 +24,42 @@ export function AddPost() {
   const classes = Styles();
   const [URL, setURL] = useState("");
   // const [enterpost, setEnterpost] = useState("");
-  const [data, setdata] = useState({
-    name: ""
-  })
+  const [data, setdata] = useState("");
 
-  const { name } = data
+  // const { name } = data
 
   const dispatch = useDispatch()
 
   const handlechange = (e) => {
-    let { name, value } = e.target;
-    setdata({ ...data, [name]: value })
+    // let { name, value } = e.target;
+    setdata({ ...data, name: e.target.value })
+  }
+  const getData = () =>{
+    fetch(`http://localhost:3001/data`)
+    .then(x=>x.json())
+    .then().catch(e=>{
+      console.log(e.message)
+    })
   }
 
   const submitPost = (e) => {
 
     e.preventDefault()
 
-    if (name == "") {
-      alert("input field can not be empty")
-    }
+    // if (data  === "") {
+    //   alert("input field can not be empty")
+    // }
    
       dispatch(postadded(data))
+      getData();
 
-      setdata({
-        name:""
-      })
+      
     
 
     // fetch(`http://localhost:3001/data`, {
     //   method: "POST",
     //   body: JSON.stringify({
-    //     data: data,
+    //     name: data,
     //   }),
     //   headers: {
     //     "content-Type": "application/json"
@@ -72,6 +77,7 @@ export function AddPost() {
   };
 
   return (
+    <>
     <Paper className={classes.upload}>
       <div className={classes.upload__header}>
         <Avatar onClick={direct} src={user.photoURL} />
@@ -114,6 +120,12 @@ export function AddPost() {
           <h4>Write article</h4>
         </div>
       </div>
+
+      <h1>naveed</h1>
     </Paper>
+
+    
+
+    </>
   );
 }

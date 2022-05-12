@@ -1,49 +1,16 @@
 {
   "data": [
     {
-      "data": "naveed",
+      "name": "kiran",
       "id": 1
     },
     {
-      "data": "aksjdhasd",
+      "name": "naveed",
       "id": 2
     },
     {
-      "data": "aksjdhasd",
+      "name": "pratik",
       "id": 3
-    },
-    {
-      "data": "aksjdhasd",
-      "id": 4
-    },
-    {
-      "naveed": "",
-      "id": 5
-    },
-    {
-      "naveed shaik": "",
-      "id": 6
-    },
-    {
-      "naveed shaik 123": "",
-      "id": 7
-    },
-    {
-      "name": "",
-      "": "naveed",
-      "id": 8
-    },
-    {
-      "name": "",
-      "id": 9
-    },
-    {
-      "": "shaik",
-      "id": 10
-    },
-    {
-      "": "shaik",
-      "id": 11
     }
   ]
 }

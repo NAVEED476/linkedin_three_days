@@ -14,7 +14,11 @@ import { db } from "../../../firebase";
 import ReactPlayer from "react-player";
 
 export function EnterPost() {
-  const classes = Style();
+  const classes = Style(); // db.collection("enterpost")
+  //   .orderBy("timestamp", "desc")
+  //   .onSnapshot((snapshot) => {
+  //     setenterPosts(snapshot.docs.map((doc) => doc.data()));
+  //   });
   const [active, setactive] = useState("");
   const [liked, setLiked] = useState(false);
   const [enterposts, setenterPosts] = useState([]);
@@ -30,11 +34,11 @@ export function EnterPost() {
     setHeartIcontOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
     setSmileIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
     setThumsUpIconOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
-    db.collection("enterpost")
-      .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) => {
-        setenterPosts(snapshot.docs.map((doc) => doc.data()));
-      });
+    // db.collection("enterpost")
+    //   .orderBy("timestamp", "desc")
+    //   .onSnapshot((snapshot) => {
+    //     setenterPosts(snapshot.docs.map((doc) => doc.data()));
+    //   });
   }, []);
   const showdata= () =>{
     return (
