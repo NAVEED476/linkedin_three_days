@@ -13,7 +13,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { axios } from "axios"
 import { postadded } from "../../Redux/action";
-import ShowPost from "../ShowPost/ShowPost"
+import ShowPost,{getData} from "../ShowPost/ShowPost"
 export function AddPost() {
   const nav = useNavigate();
   const direct = () => {
@@ -51,7 +51,10 @@ export function AddPost() {
     // }
    
       dispatch(postadded(data))
+      // window.location.reload(false)
       getData();
+      setdata("")
+      
 
       
     
@@ -121,8 +124,10 @@ export function AddPost() {
         </div>
       </div>
 
-      <h1>naveed</h1>
+      
     </Paper>
+
+   
 
     
 
