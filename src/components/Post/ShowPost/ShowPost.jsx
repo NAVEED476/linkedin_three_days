@@ -115,8 +115,8 @@ console.log(objAssetSelection);
             <div className={classes.header__info}>
             
               <h4>
-              {/* {posts[posts.length-1].name.title} {posts[posts.length-1].name.first} {posts[posts.length-1].name.last} */}
-              Kiran
+              {posts[posts.length-1].name.title} {posts[posts.length-1].name.first} {posts[posts.length-1].name.last}
+             
               </h4>
               
               <p style={{ margin: 0 }}>
