@@ -103,7 +103,7 @@ export function EnterPost() {
                     <img src={user.message} style={{ width: "100%" }} />
                   )
                 ) : (
-                  <p style={{ margin: 0 }}>{user.message}</p>
+                  <p style={{ margin: 0 }}>hi bro</p>
                 )}
               </div>
             </div>

@@ -8,7 +8,7 @@ function PostComponent() {
   return (
     <Container>
       <AddPost />
-      <EnterPost />
+      {/* <EnterPost /> */}
       <ShowPost />
     </Container>
   );
