@@ -27,7 +27,8 @@ const ShowPost = () => {
 
   useEffect(() => {
     getData()
-   
+
+
     setLikesCount(Math.floor(Math.random() * 1000) + 1);
     setCommentsCount(Math.floor(Math.random() * 10) + 1);
     setHeartIcontOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
@@ -43,7 +44,9 @@ const ShowPost = () => {
     await fetch(`http://localhost:3001/data`)
       .then(x => x.json())
       .then(res =>
-        setPostData(res)).catch(e => {
+        setPostData(res)
+        
+        ).catch(e => {
           console.log(e.message)
         })
   }
@@ -97,13 +100,14 @@ const ShowPost = () => {
 
 
 
-console.log(posts);
-console.log(postData.reverse())
+var objAssetSelection = $.parseJSON(postData);
+objAssetSelection.info.reverse();
+console.log(objAssetSelection);
 
   return (
    <div>
       {
-        postData.reverse().map(e=>
+        postData.sort().reverse().map(e=>
         <Paper className={classes.post}>
           <div className={classes.post__header}>
            <Avatar name="Foo Bar" />
