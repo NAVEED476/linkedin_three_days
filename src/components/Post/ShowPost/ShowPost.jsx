@@ -27,6 +27,7 @@ const ShowPost = () => {
 
   useEffect(() => {
     getData()
+   
     setLikesCount(Math.floor(Math.random() * 1000) + 1);
     setCommentsCount(Math.floor(Math.random() * 10) + 1);
     setHeartIcontOrder(Math.floor(Math.random() * (3 - 1 + 1)) + 1);
@@ -38,8 +39,8 @@ const ShowPost = () => {
   }, []);
 
 
-  const getData = () => {
-    fetch(`http://localhost:3001/data`)
+  const getData = async () => {
+    await fetch(`http://localhost:3001/data`)
       .then(x => x.json())
       .then(res =>
         setPostData(res)).catch(e => {
@@ -56,7 +57,7 @@ const ShowPost = () => {
     return (
 
 
-      // emoji reactions 
+      
 
 
 
@@ -88,33 +89,35 @@ const ShowPost = () => {
   };
 
   const datefun = () => {
-    var date = "1645776626074";
-    var d = new Date(parseInt(date, 10));
-    var ds = d.toString("MM/dd/yy HH:mm:ss");
-    return ds;
+    var date = "1645776626078";
+    
+    let fixDate = (new Date()).setHours(1,0,90); 
+    return fixDate;
   };
 
 
 
 console.log(posts);
+console.log(postData.reverse())
 
   return (
    <div>
       {
-        postData.map(e=><Paper className={classes.post}>
+        postData.reverse().map(e=>
+        <Paper className={classes.post}>
           <div className={classes.post__header}>
-          <Avatar src={posts[posts.length-1].picture.large} />
+           <Avatar name="Foo Bar" />
             
             <div className={classes.header__info}>
             
               <h4>
-              {posts[posts.length-1].name.title} {posts[posts.length-1].name.first} {posts[posts.length-1].name.last}
-              
+              {/* {posts[posts.length-1].name.title} {posts[posts.length-1].name.first} {posts[posts.length-1].name.last} */}
+              Kiran
               </h4>
               
               <p style={{ margin: 0 }}>
                 <ReactTimeago
-                  date={new Date()}
+                  date={new Date(datefun()).toUTCString()}
                   units="minute"
                 />
               </p>
@@ -126,7 +129,7 @@ console.log(posts);
               
               <p style={{ margin: 0 }}>
                 {/* {user.location.city} {user.location.state}{" "}
-                {user.location.country} */}
+                {user.location.country}  */}
                 {e.name}
                 
               </p>

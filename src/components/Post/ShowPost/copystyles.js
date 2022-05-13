@@ -102,8 +102,7 @@ function ShowPost() {
             <div className={classes.post__body}>
               <div className={classes.body__description}>
                 <p style={{ margin: 0 }}>
-                  {user.location.city} {user.location.state}{" "}
-                  {user.location.country}
+                  
                 </p>
               </div>
             </div>
