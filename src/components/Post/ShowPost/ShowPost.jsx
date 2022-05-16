@@ -152,7 +152,11 @@ const ShowPost = () => {
             <Reactions  />
             <div className={classes.footer__actions}>
               <div className={classes.action__icons}>
-                <ThumbUpAltOutlinedIcon style={{ transform: "scaleX(-1)" }} />
+                <ThumbUpAltOutlinedIcon style={{
+                          transform: "scaleX(-1)",
+                          color: "gray",
+                          fontSize: "medium",
+                        }} />
                 <h4>Like</h4>
               </div>
               <div className={classes.action__icons}>
