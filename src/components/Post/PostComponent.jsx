@@ -9,7 +9,7 @@ function PostComponent() {
   return (
     <Container>
       <AddPost />
-      <EnterPost />
+      {/* <EnterPost /> */}
       {/* <Showfirebase/> */}
       <ShowPost />
     </Container>
