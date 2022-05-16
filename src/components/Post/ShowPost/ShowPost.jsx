@@ -9,6 +9,9 @@ import CommentOutlinedIcon from "@material-ui/icons/CommentOutlined";
 import Style from "./Style";
 import ReactTimeago from "react-timeago";
 import { db } from "../../../firebase";
+import { selectUser  } from "../../Redux/userSlice";
+import { useSelector } from "react-redux";
+
 
 
 
@@ -22,6 +25,7 @@ const ShowPost = () => {
   const [smileIconOrder, setSmileIconOrder] = useState(1);
   const [thumsUpIconOrder, setThumsUpIconOrder] = useState(1);
   const [postData, setPostData] = useState([]);
+  const user = useSelector(selectUser);
 
   
 
@@ -92,37 +96,41 @@ const ShowPost = () => {
   };
 
   const datefun = () => {
-    var date = "1645776626078";
-    
-    let fixDate = (new Date()).setHours(1,0,90); 
-    return fixDate;
+  
+//     var currentdate = new Date();
+// var datetime = currentdate.timeNow();
+//     console.log(datetime);
   };
+  
+  Date.prototype.getUTCTime = function(){ 
+    return this.getTime()-(this.getTimezoneOffset()*60000); 
+  };
+  
 
 
 
-var objAssetSelection = $.parseJSON(postData);
-objAssetSelection.info.reverse();
-console.log(objAssetSelection);
+// var objAssetSelection = JSON.parseJSON(postData);
+// objAssetSelection.info.reverse();
+// console.log(objAssetSelection);
 
   return (
    <div>
       {
-        postData.sort().reverse().map(e=>
+        postData.map(e=>
         <Paper className={classes.post}>
           <div className={classes.post__header}>
-           <Avatar name="Foo Bar" />
+           <Avatar src={e.photoUrl} />
             
             <div className={classes.header__info}>
             
               <h4>
-              {posts[posts.length-1].name.title} {posts[posts.length-1].name.first} {posts[posts.length-1].name.last}
-             
+              {/* {posts[posts.length-1].name.title} {posts[posts.length-1].name.first} {posts[posts.length-1].name.last} */}
+              {user.displayName}
               </h4>
               
               <p style={{ margin: 0 }}>
                 <ReactTimeago
-                  date={new Date(datefun()).toUTCString()}
-                  units="minute"
+                  date={new Date().getUTCTime()}
                 />
               </p>
             </div>
@@ -132,8 +140,8 @@ console.log(objAssetSelection);
             <div className={classes.body__description}>
               
               <p style={{ margin: 0 }}>
-                {/* {user.location.city} {user.location.state}{" "}
-                {user.location.country}  */}
+                  {/* {e.location.city} {e.location.state}{" "}
+                  {.location.country}  */}
                 {e.name}
                 
               </p>

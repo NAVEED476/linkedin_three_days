@@ -90,7 +90,7 @@ function ShowPost() {
                 <h4>
                   {user.name.title} {user.name.first} {user.name.last}
                 </h4>
-                <p style={{ margin: 0 }}>
+                <p style={{ margin:  0 }}>
                   <ReactTimeago
                     date={new Date(datefun()).toUTCString()}
                     units="minute"
@@ -135,3 +135,12 @@ function ShowPost() {
 }
 
 export default ShowPost;
+
+
+// apiKey: "AIzaSyBXggLYG3QO11sBSzqV3_e0XOVrqmDoipo",
+// authDomain: "linkedin-clone-3e412.firebaseapp.com",
+// server: "https://linkedin-clone-35878-default-c.firebaseio.com",
+// projectId: "linkedin-clone-3e412",
+// storageBucket: "linkedin-clone-3e412.appspot.com",
+// messagingSenderId: "403423842502",
+// appId: "1:403423842502:web:0b9ee4d11b147cdd3a07c7",

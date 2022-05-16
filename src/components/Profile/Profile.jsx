@@ -216,8 +216,8 @@ export const Profile = () => {
                 <h3>
                   Marathwada Mitra Mandal's College of Engineering Pune 52
                 </h3>
-                <p>Bachelor of Engineering - BE, Mechanical </p>
-                <p>Jul 2018 - June 2021</p>
+                <p>Electronics and communicational engineering     </p>
+                <p>Jul 2017 - June 2021</p>
               </div>
             </div>
           </div>
