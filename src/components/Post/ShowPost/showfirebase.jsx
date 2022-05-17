@@ -1,3 +1,7 @@
+
+// this is for checking the data that i am getting in post that how i can display and work with the same
+
+
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 
