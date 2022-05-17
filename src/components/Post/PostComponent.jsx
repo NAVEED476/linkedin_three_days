@@ -9,8 +9,8 @@ function PostComponent() {
   return (
     <Container>
       <AddPost />
-      {/* <EnterPost /> */}
-      {/* <Showfirebase/> */}
+      
+      
       <ShowPost />
     </Container>
   );
